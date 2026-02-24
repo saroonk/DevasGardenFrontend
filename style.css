@@ -586,6 +586,15 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 460px) {
+    .product-badge {
+        left: 5px;
+
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}
+
 .product-name {
     font-family: 'Inter', sans-serif;
     color: var(--accent-green);
@@ -1426,3 +1435,16 @@ body {
         padding: 20px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

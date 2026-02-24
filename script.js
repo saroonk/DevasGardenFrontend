@@ -165,4 +165,79 @@ document.addEventListener('DOMContentLoaded', () => {
     if (popupOverlay) {
         popupOverlay.addEventListener('click', closePopup);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Product Details Interactivity
+    if ($('.thumbnail-slider').length) {
+        const thumbSlider = $('.thumbnail-slider').owlCarousel({
+            items: 4,
+            margin: 10,
+            nav: false,
+            dots: true, // Enable dots for identification on scroll
+            responsive: {
+                0: { items: 3, dots: true },
+                576: { items: 4, dots: false } // Hide dots on larger screens where arrows are visible
+            }
+        });
+
+        $('.thumb-prev').click(() => thumbSlider.trigger('prev.owl.carousel'));
+        $('.thumb-next').click(() => thumbSlider.trigger('next.owl.carousel'));
+
+        // Sync thumbnails with main image
+        $('.thumb-img').click(function () {
+            $('.thumb-img').removeClass('active');
+            $(this).addClass('active');
+            const newSrc = $(this).data('large');
+            $('#mainProductImage').fadeOut(200, function () {
+                $(this).attr('src', newSrc).fadeIn(200);
+            });
+        });
+    }
+
+    // Read More Toggle
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const shortDesc = document.getElementById('shortDesc');
+    if (readMoreBtn && shortDesc) {
+        readMoreBtn.addEventListener('click', () => {
+            const isExpanded = shortDesc.classList.toggle('expanded');
+            readMoreBtn.textContent = isExpanded ? 'Read less...' : 'Read more...';
+        });
+    }
+
+    // Tabs logic
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    if (tabLinks.length) {
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const target = link.dataset.tab;
+                tabLinks.forEach(l => l.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+                link.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    }
+
+    // Quantity Control
+    const qtyInput = document.querySelector('.qty-input');
+    const plusBtn = document.querySelector('.qty-btn.plus');
+    const minusBtn = document.querySelector('.qty-btn.minus');
+    if (qtyInput && plusBtn && minusBtn) {
+        plusBtn.addEventListener('click', () => qtyInput.value = parseInt(qtyInput.value) + 1);
+        minusBtn.addEventListener('click', () => {
+            if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+        });
+    }
 });
