@@ -241,3 +241,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
+
+
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', function (e) {
+
+        // If Add to Cart button (or inside it) is clicked → don't redirect
+        if (e.target.closest('.addtocartbtn')) {
+            return;
+        }
+
+        // Get URL from data attribute
+        const url = this.dataset.url;
+
+        if (url) {
+            window.location.href = url;
+        }
+    });
+});
