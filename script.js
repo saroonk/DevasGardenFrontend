@@ -38,7 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initialize Hero Slider (Owl Carousel)
+   
+
+
+
+    
     const initSlider = () => {
         const heroSlider = $('.hero-slider');
         if (heroSlider.length) {
@@ -69,22 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSlider();
 
     // Initialize Testimonial Slider
-    $('.testimonial-slider').owlCarousel({
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        dots: true,
-        smartSpeed: 800,
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 1
-            }
-        }
-    });
+
 
 
 
@@ -98,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }, 2000);
     // });
 
+    
+    
+    
     const addtocartbtn = Array.from(document.getElementsByClassName('addtocartbtn'));
 
     addtocartbtn.map(el => {
@@ -311,3 +303,41 @@ if (mobCatBtn && mobCatSubmenu) {
         mobCatBtn.setAttribute('aria-expanded', isOpen);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $('.testimonial-slider').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        dots: true,
+        smartSpeed: 800,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            }
+        }
+    });
