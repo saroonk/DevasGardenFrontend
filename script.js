@@ -262,3 +262,52 @@ document.querySelectorAll('.product-card').forEach(card => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ── Mobile Nav Drawer ──
+const mobOverlay = document.getElementById('mobNavOverlay');
+const mobDrawer = document.getElementById('mobNavDrawer');
+const mobOpen = document.getElementById('mobNavOpen');
+const mobClose = document.getElementById('mobNavClose');
+
+function openMobNav() {
+    mobOverlay.classList.add('open');
+    mobDrawer.classList.add('open');
+    document.body.classList.add('mob-nav-open');
+}
+
+function closeMobNav() {
+    mobOverlay.classList.remove('open');
+    mobDrawer.classList.remove('open');
+    document.body.classList.remove('mob-nav-open');
+}
+
+if (mobOpen) mobOpen.addEventListener('click', openMobNav);
+if (mobClose) mobClose.addEventListener('click', closeMobNav);
+if (mobOverlay) mobOverlay.addEventListener('click', closeMobNav);
+
+// Close on ESC key
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobNav(); });
+
+// ── Category accordion in mobile drawer ──
+const mobCatBtn = document.getElementById('mobCatBtn');
+const mobCatSubmenu = document.getElementById('mobCatSubmenu');
+if (mobCatBtn && mobCatSubmenu) {
+    mobCatBtn.addEventListener('click', () => {
+        const isOpen = mobCatSubmenu.classList.toggle('open');
+        mobCatBtn.classList.toggle('open', isOpen);
+        mobCatBtn.setAttribute('aria-expanded', isOpen);
+    });
+}

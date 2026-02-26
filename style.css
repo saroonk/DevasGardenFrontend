@@ -41,23 +41,23 @@ body {
     top: 90%;
     right: 10px;
     transform: translateY(-50%);
-    
+
     width: 60px;
     height: 60px;
     background-color: #25D366;
     color: white;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     border-radius: 50%;
     font-size: 30px;
     text-decoration: none;
-    
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    
+
     transition: all 0.3s ease;
 }
 
@@ -70,9 +70,17 @@ body {
 
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
 .whatsapp-float {
@@ -129,6 +137,16 @@ body {
 
 
 
+
+
+/* Sticky Header Wrapper */
+.header-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
+}
+
 /* Navbar Styles */
 .navbar {
     background-color: var(--white);
@@ -155,6 +173,60 @@ body {
 .nav-link.active {
     color: var(--accent-green) !important;
 }
+
+/* ── Desktop Category Dropdown (Hover to open) ── */
+@media (min-width: 992px) {
+    .dropdown-hover:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-hover .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        padding: 10px;
+        min-width: 220px;
+        top: 100%;
+    }
+
+    .dropdown-hover:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.nav-category-menu {
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    background: #fff;
+}
+
+.nav-category-menu .dropdown-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #444;
+    transition: all 0.2s ease;
+}
+
+.nav-category-menu .dropdown-item:hover {
+    background-color: #f5fbf0;
+    color: var(--accent-green);
+    transform: translateX(5px);
+}
+
 
 /* Icon Buttons */
 .nav-icon-btn {
@@ -284,11 +356,8 @@ body {
     }
 
     .navbar-collapse {
-        background: white;
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: none !important;
+        /* hidden — replaced by custom drawer */
     }
 
     .nav-icon-btn {
@@ -305,6 +374,238 @@ body {
         font-size: 11px;
     }
 }
+
+
+
+
+.mob-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1040;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.mob-nav-overlay.open {
+    display: block;
+    opacity: 1;
+}
+
+/* Drawer panel — slides in from right, leaves ~64px gap on left */
+.mob-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 64px;
+    /* gap on the left */
+    bottom: 0;
+    background: #fff;
+    z-index: 1050;
+    transform: translateX(100%);
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+    border-radius: 0;
+}
+
+.mob-nav-drawer.open {
+    transform: translateX(0);
+}
+
+/* Prevent scroll on body when drawer is open */
+body.mob-nav-open {
+    overflow: hidden;
+}
+
+/* Inner padding */
+.mob-nav-drawer-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+/* Header inside drawer */
+.mob-nav-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mob-nav-logo {
+    height: 44px;
+    width: auto;
+}
+
+/* Close button (×) */
+.mob-nav-close {
+    background: #f4f4f4;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+}
+
+.mob-nav-close:hover {
+    background: var(--accent-green);
+    color: #fff;
+}
+
+/* Nav links list */
+.mob-nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 12px 0;
+    flex: 1;
+}
+
+.mob-nav-links li {
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.mob-nav-links li:last-child {
+    border-bottom: none;
+}
+
+.mob-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1a2e1a;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+}
+
+.mob-nav-link:hover,
+.mob-nav-link.active {
+    color: var(--accent-green);
+    background: #f7fbf2;
+}
+
+/* ── Category accordion inside drawer ── */
+.mob-cat-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1a2e1a;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+}
+
+.mob-cat-btn:hover {
+    color: var(--accent-green);
+    background: #f7fbf2;
+}
+
+.mob-cat-btn .mob-cat-chevron {
+    font-size: 13px;
+    transition: transform 0.28s ease;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.mob-cat-btn.open .mob-cat-chevron {
+    transform: rotate(90deg);
+    color: var(--accent-green);
+}
+
+.mob-cat-submenu {
+    display: none;
+    flex-direction: column;
+    background: #f9fcf6;
+    border-top: 1px solid #eee;
+    padding: 6px 0;
+}
+
+.mob-cat-submenu.open {
+    display: flex;
+}
+
+.mob-cat-submenu a {
+    display: block;
+    padding: 11px 24px 11px 38px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+}
+
+.mob-cat-submenu a:hover {
+    color: var(--accent-green);
+    background: #f0f8e8;
+}
+
+/* Footer with Track Order button */
+.mob-nav-footer {
+    padding: 20px 20px 32px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Custom Hamburger Button */
+.mob-hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+}
+
+.mob-hamburger span {
+    display: block;
+    height: 2.5px;
+    border-radius: 2px;
+    background: var(--accent-green);
+    transition: all 0.3s ease;
+}
+
+.mob-hamburger span:first-child {
+    width: 24px;
+}
+
+.mob-hamburger span:nth-child(2) {
+    width: 18px;
+}
+
+.mob-hamburger span:last-child {
+    width: 22px;
+}
+
+.mob-hamburger:hover span {
+    width: 24px;
+}
+
+
+
 
 
 
@@ -482,7 +783,7 @@ body {
 .feature-card {
     padding: 30px;
     transition: transform 0.3s ease;
-        /* border: 1px solid #5f1313; */
+    /* border: 1px solid #5f1313; */
 
     /* margin: auto; */
 
@@ -1355,6 +1656,10 @@ body {
     }
 }
 
+
+
+
+
 /* Offer Popup Styles */
 .popup-overlay {
     position: fixed;
@@ -1370,7 +1675,7 @@ body {
 
 .offer-popup {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     width: 90%;
@@ -1505,7 +1810,7 @@ body {
 
 
 
-.offer-img{
+/* .offer-img{
     border-radius: 80px !important;
 
 }
@@ -1514,11 +1819,24 @@ body {
     border-radius: 10px !important;
     corner-shape: squircle;
 
-    /* round
-    scoop
-    bevel
-    notch
-    square */
 
 
+} */
+
+.offer-banner {
+    background-image: url("images/offer.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    height: 300px;
+    /* desktop height */
+}
+
+/* Small screen */
+@media (max-width: 768px) {
+    .offer-banner {
+        height: 200px;
+        border-radius: 20px;
+    }
 }
