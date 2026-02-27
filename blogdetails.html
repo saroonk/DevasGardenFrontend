@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track Your Order  - Deva's Garden</title>
+    <title>Blog Details - Deva's Garden</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
@@ -18,7 +17,7 @@
     <!-- Shared CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Cart CSS -->
-    <link rel="stylesheet" href="trackorder.css">
+    <link rel="stylesheet" href="blogdetails.css">
 </head>
 
 <body>
@@ -68,7 +67,6 @@
                     </li>
                     <li><a href="products.html" class="mob-nav-link">Products</a></li>
                     <li><a href="blog.html" class="mob-nav-link">Blog</a></li>
-
                     <li><a href="#" class="mob-nav-link ">Contact Us</a></li>
                 </ul>
 
@@ -126,7 +124,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 
                         <li class="nav-item"><a class="nav-link " href="#">Contact Us</a></li>
                     </ul>
@@ -174,144 +172,109 @@
 
 
 
-
-
-
-  <section class="track-section py-5">
+<section class="blog-details-section">
     <div class="container">
-
-        <!-- ORDER CARD 1 -->
-        <div class="order-card">
-
-            <!-- Order Header -->
-            <div class="order-header">
-                <div>
-                    <div class="order-id">Order #1025</div>
-                    <div class="order-meta">Placed on Feb 25, 2026 • 3 Items</div>
-                </div>
-
-                <span class="status-badge status-delivered">
-                    <i class="bi bi-check-circle-fill me-1"></i> Delivered
-                </span>
+        
+        <header class="blog-header">
+            <span class="blog-category">Indoor Gardening Guide</span>
+            <h1 class="blog-main-title">The Secret Language of Your Monstera: A Care Guide</h1>
+            <div class="blog-meta">
+                <span><i class="bi bi-calendar3 me-2"></i> Feb 26, 2026</span>
+                <span><i class="bi bi-person me-2"></i> By Deva's Botanist</span>
+                <span><i class="bi bi-clock me-2"></i> 8 Min Read</span>
             </div>
+        </header>
 
-            <!-- Order Items -->
-            <div class="order-item">
-                <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=200" class="product-img">
-                <div class="item-details">
-                    <h6>Monstera Deliciosa</h6>
-                    <p>Qty: 1 • $45.00</p>
-                </div>
-            </div>
-
-            <div class="order-item">
-                <img src="https://images.unsplash.com/photo-1520412099561-648319766591?auto=format&fit=crop&q=80&w=200" class="product-img">
-                <div class="item-details">
-                    <h6>Snake Plant Zeylanica</h6>
-                    <p>Qty: 2 • $72.00</p>
-                </div>
-            </div>
-
-            <!-- Order Footer -->
-            <div class="order-footer">
-                <div class="order-total">
-                    Total: $117.00
-                </div>
-
-                <button class="btn-return" data-bs-toggle="modal" data-bs-target="#returnModal">
-                    Return Items
-                </button>
-            </div>
-
+        <div class="featured-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=1200" alt="Monstera Deliciosa">
         </div>
 
+        <div class="row">
+            <div class="col-lg-8">
+                <article class="blog-article-content">
+                    <p>
+                        There is something undeniably majestic about the <strong>Monstera Deliciosa</strong>. Known as the "Swiss Cheese Plant" for its iconic fenestrations, it has become the crowning jewel of modern interior design. But beyond its aesthetic appeal, the Monstera is a living, breathing entity that communicates its needs through subtle physical cues.
+                    </p>
 
-        <!-- ORDER CARD 2 (In Transit Example) -->
-        <div class="order-card">
+                    <h3>Understanding Light Requirements</h3>
+                    <p>
+                        In their natural habitat, Monsteras are climbers, scaling the trunks of giant trees in tropical rainforests. This means they are accustomed to "dappled" sunlight. In your home, this translates to bright, indirect light.
+                    </p>
+                    
+                    <div class="plant-quote">
+                        "A plant doesn't grow because it has to; it grows because the environment allows it to thrive."
+                    </div>
 
-            <div class="order-header">
-                <div>
-                    <div class="order-id">Order #1026</div>
-                    <div class="order-meta">Placed on Feb 27, 2026 • 2 Items</div>
+                    <p>
+                        If your Monstera's leaves are turning yellow, it might be receiving too much direct sun, causing "leaf burn." Conversely, if the new leaves lack those famous holes (fenestrations), it’s a sign your plant is reaching for more light.
+                    </p>
+
+                    <h3>The Art of Watering</h3>
+                    <p>
+                        Overwatering is the most common mistake for new plant parents at Deva’s Garden. We recommend the <strong>"Two-Inch Rule"</strong>: Insert your finger into the soil; if the top two inches are dry, it’s time for a drink. Always ensure your pot has drainage holes to prevent root rot—a silent killer in the indoor garden world.
+                    </p>
+
+                    <img src="https://images.unsplash.com/photo-1525498128493-380d1990a112?auto=format&fit=crop&q=80&w=800" class="rounded-4 mb-4" alt="Watering plants">
+
+                    <h3>Soil and Humidity</h3>
+                    <p>
+                        Because these are tropical plants, they crave humidity. Grouping your plants together or using a pebble tray can create a micro-climate that keeps the air moist. For soil, a chunky mix of peat moss, perlite, and orchid bark provides the aeration their thick roots need to breathe.
+                    </p>
+                </article>
+
+                <div class="mt-5 pt-4 border-top">
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-light text-dark p-2 px-3 rounded-pill border">#Monstera</span>
+                        <span class="badge bg-light text-dark p-2 px-3 rounded-pill border">#PlantCare</span>
+                        <span class="badge bg-light text-dark p-2 px-3 rounded-pill border">#IndoorGarden</span>
+                    </div>
                 </div>
-
-                <span class="status-badge status-pending">
-                    <i class="bi bi-truck me-1"></i> In Transit
-                </span>
             </div>
 
-            <div class="order-item">
-                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=200" class="product-img">
-                <div class="item-details">
-                    <h6>Fiddle Leaf Fig</h6>
-                    <p>Qty: 1 • $60.00</p>
-                </div>
+            <div class="col-lg-4">
+                <aside class="blog-sidebar">
+                    
+                    <!-- <div class="sidebar-widget">
+                        <h4 class="widget-title">Search Articles</h4>
+                        <div class="input-group">
+                            <input type="text" class="form-control border-end-0" placeholder="Find a guide...">
+                            <span class="input-group-text bg-white border-start-0"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div> -->
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">Recent Articles</h4>
+                        
+                        <a href="#" class="related-post-item">
+                            <img src="https://images.unsplash.com/photo-1517050359210-69e85941e76b?auto=format&fit=crop&q=80&w=150" class="related-thumb">
+                            <div>
+                                <h6 class="mb-1 fw-bold">5 Easy Plants for Beginners</h6>
+                                <small class="text-muted">Jan 12, 2026</small>
+                            </div>
+                        </a>
+
+                        <a href="#" class="related-post-item">
+                            <img src="https://images.unsplash.com/photo-1584447128309-b66b7a4d1b63?auto=format&fit=crop&q=80&w=150" class="related-thumb">
+                            <div>
+                                <h6 class="mb-1 fw-bold">The Magic of Succulents</h6>
+                                <small class="text-muted">Feb 05, 2026</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <div class="sidebar-widget text-center" style="background-color: var(--primary-green); color: var(--white);">
+                        <i class="bi bi-envelope-paper fs-1 mb-3" style="color: var(--track-yellow);"></i>
+                        <h4 class="widget-title text-white justify-content-center">Garden Tips?</h4>
+                        <p class="small opacity-75">Join 5,000+ plant lovers. Get weekly care secrets in your inbox.</p>
+                        <input type="email" class="form-control mb-3" placeholder="Enter Email">
+                        <button class="btn w-100 fw-bold" style="background: var(--track-yellow); color: var(--primary-green);">Subscribe</button>
+                    </div> -->
+
+                </aside>
             </div>
-
-            <div class="order-footer">
-                <div class="order-total">
-                    Total: $60.00
-                </div>
-
-                <button class="btn-return opacity-50" disabled>
-                    Return Not Available
-                </button>
-            </div>
-
         </div>
-
     </div>
 </section>
-
-<div class="modal fade" id="returnModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title fw-bold" style="font-family: 'Clash Grotesk'; color: var(--primary-green);">Request Replacement</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="return-form">
-                    <div class="mb-3">
-                        <label>Full Name</label>
-                        <input type="text" class="form-control" placeholder="Your name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Mobile Number</label>
-                        <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Reason for Replacement</label>
-                        <select class="form-select">
-                            <option selected disabled>Select a reason</option>
-                            <option>Damaged during transit</option>
-                            <option>Incorrect plant received</option>
-                            <option>Severe wilting / Health issues</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label>Details</label>
-                        <textarea class="form-control" rows="3" placeholder="Please describe the issue..."></textarea>
-                    </div>
-                    <div class="mb-4">
-                        <label>Upload Evidence (Photos)</label>
-                        <div class="file-upload-wrapper">
-                            <i class="bi bi-camera" style="font-size: 1.5rem; color: var(--accent-green);"></i>
-                            <p class="small text-muted mb-0">Click to upload photo of the plant & box</p>
-                            <input type="file" hidden id="fileUpload">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-track w-100 position-relative py-3">Submit Replacement Request</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
 
 
 
